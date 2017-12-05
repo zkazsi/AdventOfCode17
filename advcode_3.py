@@ -11,6 +11,7 @@ def advcode3(ertek):
 
     coord1Row = int(squaresize / 2) + 1
     coord1Col = coord1Row
+    #Define edge values
     valueRowXColX = math.pow(squaresize, 2)
     valueRow1Col1 =  math.pow(squaresize-1, 2) + 1
     valueRow1Colx = valueRow1Col1 - (squaresize - 1)
@@ -36,4 +37,4 @@ def advcode3(ertek):
     # Correction: for some reason, answer is 1 less: added '-1'
     lengthPath = abs(coord1Col - coordCol) + abs(coord1Row - coordRow) - 1
       
-    print("The length of the path to the center portal, no 1 is ", lengthPath)
+    print("The length of the path to the center portal, no 1 is ", lengthPath, "steps.\nThe coordinates of the input are: rownum: ", coordRow, " , column: ", coordCol)

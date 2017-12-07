@@ -1,3 +1,4 @@
+import functools as ft
 with open('input4.txt', 'r') as f:
     l = []
     for line in f:
@@ -7,15 +8,20 @@ with open('input4.txt', 'r') as f:
 
 counter = 0
 for row in l:
-    print(row)
+    # *** these only for Step 2, remove for Step 1 ***
+    newrow = []
+    for elem in row:
+        elem = ft.reduce(lambda x,y: x+y, sorted(elem))
+        newrow.append(elem)
+    # *** end of Step 2 modifications ***
+
     # set([x for x in row if row.count(x) > 1])
     seen = set()
     seen_add = seen.add
     # adds all elements it doesn't know yet to seen and all other to seen_twice
-    seen_twice = set( x for x in row if x in seen or seen_add(x) )
-    # turn the set into a list (as requested)
+    # *** for Step 1: 'row' instead of 'newrow' ***
+    seen_twice = set( x for x in newrow if x in seen or seen_add(x) ) 
     
-    print(seen_twice)
     if len(seen_twice) == 0:
         counter += 1
 print(counter)
